@@ -16,7 +16,14 @@ int main() {
 	unsigned char result[MD5_LEN];
 	char mac[20];
 
-	fgets(mac, sizeof(mac), stdin);
+	printf("Enter Support Key: ");
+
+	if( fgets(mac, sizeof(mac), stdin) == NULL)
+	{
+		perror("Unable to read key");
+		exit(1);
+	}
+
 	if (strlen(mac) != (KEYLEN+1))
 	{
 		printf("Invalid key input %d\n", strlen(mac));
@@ -31,6 +38,7 @@ int main() {
 
 	/* Root password */
 
+	printf("Generating root password....\n");
 	MD5_Init(&ctx);
 	MD5_Update(&ctx, LHNSTR, strlen(LHNSTR));
 	MD5_Update(&ctx, mac, KEYLEN);
@@ -39,6 +47,7 @@ int main() {
 
 	/* S/Key secret */
 
+	printf("Generating S/Key secret...\n");
 	MD5_Init(&ctx);
 	MD5_Update(&ctx, LHNSTR, strlen(LHNSTR));
 	MD5_Final(result, &ctx);
