@@ -12,3 +12,6 @@ noinst_HEADERS =
 
 distclean-local:
 	rm -rf autom4te.cache .deps Makefile.in configure
+
+check:
+	./check.pl
