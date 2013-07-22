@@ -2,8 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-
+#include "config.h"
+#ifdef HAVE_MD5_H
+#include <openssl/md5.h>
+#else
 #include "md5.h"
+#endif
 #define MD5_LEN 16
 #define LHNSTR "RedHook LHN 4.1 SKEY 20030101 - Kelly"
 #define KEYLEN 17
