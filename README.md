@@ -52,4 +52,4 @@ The official repository for lhnskey is the git tree. Install using the following
 The ./configure script accepts some options:
     --enable-development enable developer features default=no
     --enable-secure turn on security features default=yes
-
+The autoconf script will link against OpenSSL if detected, otherwise, a shipped md5.c will be compiled in.
