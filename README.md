@@ -45,12 +45,14 @@ I recommend the following site to create the s/key response: http://www.ocf.berk
 Installation
 ------------
 The official repository for lhnskey is the git tree. Install using the following:
+
     git clone https://github.com/technion/lhnskey
     ./configure
     make
     make check
 
 The ./configure script accepts some options:
+
     --enable-development enable developer features default=no
     --enable-secure turn on security features default=yes
 
