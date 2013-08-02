@@ -30,7 +30,7 @@ int main() {
 
 	if (strlen(mac) != (KEYLEN+1))
 	{
-		printf("Invalid key input %d\n", strlen(mac));
+		printf("Invalid key input %zu\n", strlen(mac));
 		exit(1);
 	}
 	if (mac[KEYLEN] != '\n')
