@@ -2,25 +2,23 @@ AC_INIT(lhnskey, [1.11], [technion@lolware.net])
 AM_INIT_AUTOMAKE(lhnskey, 1.0)
 AM_CONFIG_HEADER(config.h)
 
-m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])],
-[DUMMY_VARIABLE_FOR_OLD_AUTOMAKE=1]) 
-
-
-
 AC_LANG_C
+AC_HEADER_STDC
 AC_PROG_CC
 AC_PROG_MAKE_SET
 
-AC_ARG_ENABLE(development, [ --enable-development enable developer features [default=no]],
-       [CFLAGS="-Wall -O0 -g" ])
+AC_ARG_ENABLE(development, [ --enable-development enable developer features [default=no]])
 
 AC_ARG_ENABLE(secure, [ --enable-secure turn on security features [default=yes]])
 	
 AS_IF([test "x$enable_secure" != "xno"], [
 	if test "x$enable_development" = "xyes" ; then
-	AC_MSG_WARN("Developer on: Turning off secure")
+		AC_MSG_WARN("Developer on: Turning off secure")
+		AM_SILENT_RULES([no])
+		CFLAGS="-Wall -O0 -g"
 	else
-	CFLAGS="-Wall -fstack-protector -D_FORTIFY_SOURCE=2 -O2"
+		AM_SILENT_RULES([yes])
+		CFLAGS="-Wall -fstack-protector -D_FORTIFY_SOURCE=2 -O2"
 	fi
 ])
 
@@ -35,7 +33,6 @@ else
 	AM_CONDITIONAL([MYMD5], [test x$MYMD5 = xyes])
 fi
 
-AC_HEADER_STDC
 
 AC_OUTPUT(Makefile)
 
