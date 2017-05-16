@@ -8,7 +8,7 @@ my $exp = "Enter Support Key: Generating root password....
 ecdf308e1d\nGenerating S/Key secret...\n4bfdf1ebfd7a126b345b752111f55cc2\n";
 
 if ($ret ne $exp) {
-	print "The generator failed to pass the reference test, printed\n$ret"
+	print "The generator failed to pass the reference test, printed\n$ret";
     exit 1;
 } else {
 	print "lhnskey passed reference test.";
