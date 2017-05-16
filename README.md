@@ -1,6 +1,8 @@
 LHNSKEY
 =========
 
+[![Build Status](https://travis-ci.org/technion/lhnskey.svg?branch=master)](https://travis-ci.org/technion/lhnskey)
+
 Generator for CVE-2013-2352.
 
 By: technion@lolware.net
