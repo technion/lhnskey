@@ -62,7 +62,7 @@ int main() {
 }
 
 void printstr(unsigned char *input, const size_t len) {
-	int i;
+	unsigned int i;
 
 	for (i=0; i<len; i++)
 	{
