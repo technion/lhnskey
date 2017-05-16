@@ -15,19 +15,19 @@ AS_IF([test "x$enable_secure" != "xno"], [
 	if test "x$enable_development" = "xyes" ; then
 		AC_MSG_WARN("Developer on: Turning off secure")
 		AM_SILENT_RULES([no])
-		CFLAGS="-Wall -O0 -g"
+		CFLAGS="-Wall -O0 -g -fsanitise=address"
 	else
 		AM_SILENT_RULES([yes])
 		CFLAGS="-Wall -fstack-protector -D_FORTIFY_SOURCE=2 -O2"
 	fi
 ])
 
-AC_CHECK_LIB([ssl], [MD5_Init], [ HAVE_OPENSSL="yes"] )
+AC_CHECK_LIB([crypto], [MD5_Init], [ HAVE_OPENSSL="yes"] )
 AC_CHECK_HEADER(openssl/md5.h, AC_DEFINE(HAVE_MD5_H, [1], [Has OpenSSL md5.h]))
 
 AM_CONDITIONAL([MYMD5], [test x$MYMD5 = xno])
 if test "x$HAVE_OPENSSL" = xyes ; then
-	LDFLAGS+="-lssl"
+	LDFLAGS+="-lcrypto"
 else
 	MYMD5="yes"
 	AM_CONDITIONAL([MYMD5], [test x$MYMD5 = xyes])

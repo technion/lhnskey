@@ -11,6 +11,6 @@ if ($ret ne $exp) {
 	print "The generator failed to pass the reference test, printed\n$ret";
     exit 1;
 } else {
-	print "lhnskey passed reference test.";
+	print "lhnskey passed reference test.\n";
 }
 
