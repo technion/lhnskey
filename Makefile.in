@@ -103,9 +103,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am__lhnskey_SOURCES_DIST = lhnskey.c md5.c
-@MYMD5_FALSE@am_lhnskey_OBJECTS = lhnskey.$(OBJEXT)
-@MYMD5_TRUE@am_lhnskey_OBJECTS = lhnskey.$(OBJEXT) md5.$(OBJEXT)
+am_lhnskey_OBJECTS = lhnskey.$(OBJEXT) md5.$(OBJEXT)
 lhnskey_OBJECTS = $(am_lhnskey_OBJECTS)
 lhnskey_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -137,7 +135,7 @@ am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(lhnskey_SOURCES)
-DIST_SOURCES = $(am__lhnskey_SOURCES_DIST)
+DIST_SOURCES = $(lhnskey_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -272,8 +270,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-@MYMD5_FALSE@lhnskey_SOURCES = lhnskey.c
-@MYMD5_TRUE@lhnskey_SOURCES = lhnskey.c md5.c
+lhnskey_SOURCES = lhnskey.c md5.c
 AUTOMAKE_OPTIONS = foreign
 noinst_HEADERS = 
 all: config.h

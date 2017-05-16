@@ -22,18 +22,6 @@ AS_IF([test "x$enable_secure" != "xno"], [
 	fi
 ])
 
-AC_CHECK_LIB([crypto], [MD5_Init], [ HAVE_OPENSSL="yes"] )
-AC_CHECK_HEADER(openssl/md5.h, AC_DEFINE(HAVE_MD5_H, [1], [Has OpenSSL md5.h]))
-
-AM_CONDITIONAL([MYMD5], [test x$MYMD5 = xno])
-if test "x$HAVE_OPENSSL" = xyes ; then
-	LDFLAGS+="-lcrypto"
-else
-	MYMD5="yes"
-	AM_CONDITIONAL([MYMD5], [test x$MYMD5 = xyes])
-fi
-
-
 AC_OUTPUT(Makefile)
 
 
