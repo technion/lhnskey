@@ -1,5 +1,5 @@
 AC_INIT(lhnskey, [1.11], [technion@lolware.net])
-AM_INIT_AUTOMAKE(lhnskey, 1.0)
+AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
 
 AC_LANG_C
