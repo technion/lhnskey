@@ -1,5 +1,6 @@
 AC_INIT(lhnskey, [1.11], [technion@lolware.net])
 AM_INIT_AUTOMAKE
+AM_MAINTAINER_MODE([disable])
 AM_CONFIG_HEADER(config.h)
 
 AC_LANG_C
